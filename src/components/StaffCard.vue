@@ -16,7 +16,7 @@
             {{ staff.jobTitle }}
           </h3>
         </div>
-        <button class="staff__profile">
+        <button class="staff__profile" @click="showProfile(staff.id)">
           <i class="fas fa-ellipsis-h"></i>
         </button>
       </div>

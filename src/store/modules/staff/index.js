@@ -3,6 +3,7 @@ import axios from 'axios';
 const state = {
   staffList: [],
   filterParam: '',
+  isProfileVisible: false,
 };
 
 const mutations = {
@@ -48,17 +49,19 @@ const actions = {
     commit('UPDATE_STAFF_LIST', data);
   },
   setFilterParam({ commit }, filterParam) {
-    console.log(filterParam);
     commit('UPDATE_FILTER_PARAM', filterParam);
+  },
+  makeProfileVisible({ commit }, status) {
+    commit('UPDATE_FILTER_PARAM', status);
   },
 };
 
 const getters = {
-  staffList: (state) => state.staffList,
   filterParam: (state) => state.filterParam,
   staffListLength: (state) => state.staffList.length,
-  staffProfile: (state) => (id) => {
-    state.staffList.find((item) => item.id === id);
+  staffProfile: ({ staffList }) => (id) => {
+    const temp = staffList;
+    temp.find((item) => item.id === id);
   },
   filteredList: ({ staffList, filterParam }) => {
     const temp = staffList;

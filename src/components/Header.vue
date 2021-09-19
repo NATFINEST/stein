@@ -52,6 +52,7 @@ export default {
       if (header.value.classList.contains('open')) {
         header.value.classList.remove('open');
         hideFadeRefs.forEach((item) => item.classList.remove('fade-in'));
+        document.body.classList.remove('noscroll');
       } else {
         header.value.classList.add('open');
         hideFadeRefs.forEach((item) => item.classList.add('fade-in'));
@@ -165,7 +166,7 @@ export default {
   &__links {
     a {
       color: $white;
-      padding: 1.3rem 1rem;
+      padding: 1.24rem 1rem;
       font-size: $font-14;
       background-color: $black;
       transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);

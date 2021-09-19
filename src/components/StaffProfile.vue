@@ -1,5 +1,5 @@
 <template>
-  <div class="profile">
+  <div class="profile" ref="profile">
     <div class="container">
       <div class="profile__card">
         <div class="profile__avatar ">
@@ -52,10 +52,13 @@
 <script>
 export default {
   name: 'Staff Profile',
+  props: ['staff'],
 };
 </script>
 
 <style lang="scss" scoped>
+/* .v-hidden {
+} */
 .profile {
   @include theme-color($orange, #961d66, 89);
 
