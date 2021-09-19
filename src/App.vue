@@ -1,26 +1,53 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header />
+  <PageTitle />
+  <Filter />
+  <Staff />
+  <StaffProfile />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from './components/Header.vue';
+import PageTitle from './components/PageTitle.vue';
+import Filter from './components/Filter.vue';
+import Staff from './components/Staff.vue';
+import StaffProfile from './components/StaffProfile.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Header,
+    PageTitle,
+    Filter,
+    Staff,
+    StaffProfile,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: $black;
+  background-color: $light;
+
+  @include breakpoint-up(large) {
+    background-image: url(~@/assets/images/background.svg);
+    background-size: cover;
+  }
 }
 </style>
