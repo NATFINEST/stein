@@ -4,15 +4,39 @@
       <h1 class="filter__title">Filter colleagues</h1>
       <div class="filter__input">
         <i class="fas fa-search" />
-        <input type="text" placeholder="Search" />
+        <input
+          type="text"
+          placeholder="Search"
+          :value="search"
+          @input="great"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 export default {
   name: 'Filter',
+  setup() {
+    const store = useStore();
+    // const filterParam = computed(() => store.getters.filterParam);
+    // const staffList = computed(() => store.getters.staffList);
+    const staffList = computed(() => store.getters.filteredList);
+    // const f = computed(() => store.getters.filterParam);
+
+    const great = (e) => {
+      store.dispatch('setFilterParam', e.target.value);
+      console.log(staffList);
+      // console.log(f);
+    };
+
+    return {
+      great,
+    };
+  },
 };
 </script>
 

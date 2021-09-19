@@ -10,10 +10,10 @@
         <div class="divider"></div>
         <div class="staff__info">
           <h2 class="staff__name">
-            Freddy Patterson
+            {{ staff.name }}
           </h2>
           <h3 class="staff__job">
-            ACCOUNT MANAGER
+            {{ staff.jobTitle }}
           </h3>
         </div>
         <button class="staff__profile">
@@ -27,6 +27,7 @@
 <script>
 export default {
   name: 'SingleStaff',
+  props: ['staff'],
 };
 </script>
 <style lang="scss" scoped>
@@ -110,6 +111,11 @@ export default {
       font-size: $font-13;
       font-weight: $font-light;
       text-transform: uppercase;
+      width: 160px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+
       @include breakpoint-up(large) {
         font-size: $font-15;
       }

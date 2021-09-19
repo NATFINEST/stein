@@ -49,5 +49,9 @@ body {
     background-image: url(~@/assets/images/background.svg);
     background-size: cover;
   }
+
+  &.noscroll {
+    overflow: hidden;
+  }
 }
 </style>

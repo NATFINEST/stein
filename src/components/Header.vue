@@ -55,6 +55,7 @@ export default {
       } else {
         header.value.classList.add('open');
         hideFadeRefs.forEach((item) => item.classList.add('fade-in'));
+        document.body.classList.add('noscroll');
       }
     };
 
@@ -126,7 +127,7 @@ export default {
       }
 
       &:last-child {
-        transform-origin: -0.625rm 0.625rm;
+        transform-origin: -0.625rem 0.625rem;
       }
 
       &:not(:last-child) {
