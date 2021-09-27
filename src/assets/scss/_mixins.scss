@@ -1,0 +1,63 @@
+// 640px, 1024px, 1400px, 1920px
+$breakpoint-up: (
+  'medium': '40em',
+  'large': '64em',
+  'xlarge': '87.5em',
+  'xxlarge': '120em',
+);
+
+// 639px, 1023px, 1399px, 1919px
+$breakpoint-down: (
+  'small': '39.9375em',
+  'medium': '63.9375em',
+  'large': '87.4375em',
+  'xlarge': '119.9375',
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoint-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoint-down, $size)) {
+    @content;
+  }
+}
+
+@mixin theme-color($firstColor, $secondColor, $deg) {
+  figcaption {
+    background-color: $firstColor;
+    background: transparent
+      linear-gradient($deg + deg, $firstColor 0%, $secondColor 100%) 0% 0%
+      no-repeat padding-box;
+  }
+  button,
+  i,
+  .age {
+    color: $firstColor;
+  }
+  .cta {
+    &:hover {
+      &:hover {
+        color: lighten($firstColor, 20%);
+      }
+    }
+  }
+  .divider {
+    border: 2px solid $firstColor;
+
+    &--v2 {
+      border-top: 1px dashed $firstColor;
+    }
+  }
+  .joined {
+    @include breakpoint-up(medium) {
+      background: $firstColor;
+      max-width: fit-content;
+      padding: 2px 10px;
+      color: $white;
+    }
+  }
+}
